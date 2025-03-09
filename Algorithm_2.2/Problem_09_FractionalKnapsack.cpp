@@ -31,21 +31,15 @@ int main() {
 
    int n=3;
    vector<pair<double,pair<int,int>>>items;
-
    for(int i=0;i<n;++i)
    {
     int value,weight;
     cin>>value>>weight;
     items.push_back({(double)value/weight,{value,weight}});
    }
-//    items.push_back({(double)60/10,{60,10}});
-//    items.push_back({(double)100/20,{100,20}});
-//    items.push_back({(double)120/30,{120,30}});
-
+   
    int wet=50;
    cout<<frac(wet,items,n);
-
-
-
+   
     return 0;
 }

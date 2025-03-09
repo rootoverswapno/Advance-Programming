@@ -15,7 +15,7 @@ int func(int ind,int wt_left)
     {
        value=max(value,func(ind-1,wt_left-wt[ind])+val[ind]);
     }
-    return value;
+    return dp[ind][wt_left]=value;
   
 }
 int main() {

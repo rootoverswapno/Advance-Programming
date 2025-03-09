@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int>dijkstra(vector<vector<pair<int,int>>>&adj,
-    int src)
+vector<int>dijkstra(vector<vector<pair<int,int>>>&adj,int src)
 {
     int n=adj.size();
     vector<int>distance(n,INT_MAX);
@@ -46,7 +45,7 @@ int main() {
     int u,v,w;
     cin>>u>>v>>w;
     u--;
-    v--;
+    v--; 
     adj[u].push_back({v,w});
     adj[v].push_back({u,w});
   }

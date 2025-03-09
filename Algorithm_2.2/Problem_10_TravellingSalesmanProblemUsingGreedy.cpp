@@ -7,35 +7,21 @@ int tsp(vector<vector<int>>graph){
     {
         vertex.push_back(i);
     }
-//   int minCost=INT_MAX;
-//    do{
-//      int currcost=0;
-//      int currnode=0;
-//      for(int i=0;i<vertex.size();++i)
-//      {
-//         currcost+=graph[currnode][vertex[i]];
-//         currnode=vertex[i];
-//      }
-//      currcost+=graph[currnode][0];
-//      minCost=min(minCost,currcost);
-
-//    }while(next_permutation(vertex.begin(),vertex.end()));
-//    return minCost;
-
-int mincost=INT_MAX;
-do{
-    int curcost=0;
-    int currnode=0;
-    for(int i=0;i<vertex.size();++i)
-    {
-        curcost+=graph[currnode][vertex[i]];
+  int minCost=INT_MAX;
+   do{
+     int currcost=0;
+     int currnode=0;
+     for(int i=0;i<vertex.size();++i)
+     {
+        currcost+=graph[currnode][vertex[i]];
         currnode=vertex[i];
-    }
+     }
+     currcost+=graph[currnode][0];
+     minCost=min(minCost,currcost);
 
-    curcost+=graph[currnode][0];
-    mincost=min(mincost,curcost);
-}while(next_permutation(vertex.begin(),vertex.end()));
-return mincost;
+   }while(next_permutation(vertex.begin(),vertex.end()));
+   return minCost;
+
 
 }
 int main() {
@@ -48,8 +34,6 @@ int main() {
 
     int res=tsp(graph);
     cout<<res<<endl;
-
-
 
     return 0;
 }

@@ -21,7 +21,8 @@ void dfs(int vertex)
 int main()
 {
     int n,k;
-    cin>>n>>k;    for(int i=0;i<k;++i)
+    cin>>n>>k;    
+    for(int i=0;i<k;++i)
     {
         int v1,v2;
         cin>>v1>>v2;
