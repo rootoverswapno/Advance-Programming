@@ -2,8 +2,6 @@
 using namespace std;
 void getcombination(vector<int>&v,vector<int>&vv,vector<vector<int>>&result,int ind)
 {
-    // if(ind==v.size())return;
-
     result.push_back(vv);
     
     for(int i=ind;i<v.size();++i)
@@ -37,8 +35,6 @@ int main() {
     }
      cout<<endl;
    }
-
-
 
     return 0;
 }

@@ -25,8 +25,5 @@ cin>>n;
  }
  cout<<ct<<" "<<sum<<endl;
 
-
-
-
     return 0;
 }

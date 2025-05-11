@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 1e3 + 10;
-
 vector<int> dijkstra(vector<vector<pair<int, int>>>& graph, int src) {
     int n = graph.size();
     vector<int> dist(n, INT_MAX);
     vector<int> vis(n, 0);
     set<pair<int, int>> st;
-
     dist[src] = 0;
     st.insert({0, src});
 
@@ -53,7 +51,7 @@ int main() {
     cout << "Enter Source : ";
     int source;
     cin >> source;
-    source--; // ✅ Fix: Convert to 0-based index
+    source--; 
 
     vector<int> res = dijkstra(graph, source);
 

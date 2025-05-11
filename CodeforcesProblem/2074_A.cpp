@@ -5,7 +5,7 @@ void solve_by_Swapnomoy()
 {
   int l,r,d,u;
   cin>>l>>r>>d>>u;
-  if(l==r&&r==d&&d==u)
+  if(abs(l)==abs(r)&&abs(r)==abs(d)&&abs(d)==abs(u))
   {
     cout<<"YES"<<endl;
     return;

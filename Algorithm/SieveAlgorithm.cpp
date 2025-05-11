@@ -11,6 +11,7 @@ int main()
     {
         if (prime[i] == true)
         {
+            //we initialize j=2*i because of we note down i is prime;
             for (int j = 2 * i; j < N; j += i)
             {
                 prime[j]=false;

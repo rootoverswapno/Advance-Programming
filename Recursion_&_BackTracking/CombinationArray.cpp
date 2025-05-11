@@ -7,7 +7,7 @@ void combination(vector<int>&v,vector<vector<int>>&res,vector<int>&vv,int ind,in
         res.push_back(vv);
         return;
     }
-
+ 
     for(int i=ind;i<v.size();++i)
     {
         vv.push_back(v[i]);
