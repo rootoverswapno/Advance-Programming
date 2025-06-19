@@ -2,27 +2,28 @@
 using namespace std;
 void solve_by_rootover()
 {
-int n;
-cin>>n;
+int n,s;
+cin>>n>>s;
 vector<int>v(n);
 for(int &num:v)
 {
     cin>>num;
 }
-int counter=0;
-set<int>curr,prev;
-for(int num:v)
-{
-curr.insert(num);
-prev.insert(num);
-   if(curr.size()==prev.size())
-   {
-    counter++;
-    prev.clear();
-   }
-}
-cout<<counter<<endl;
+vector<bool>vis(n);
 
+int mx_element=*max_element(v.begin(),v.end());
+int mn_element=*min_element(v.begin(),v.end());
+int dis=(mx_element-mn_element);
+int step;
+if(s<mn_element)
+{
+    step=abs(s-mn_element);
+}
+else
+{
+    step=abs(s-mx_element);
+}
+cout<<step+dis<<endl;
 
 }
 int main()
