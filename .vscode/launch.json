@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Programming",
-      "program": "d:/Programming/build/Debug/outDebug",
+      "cwd": "d:/Programming/Local_Io",
+      "program": "d:/Programming/Local_Io/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
