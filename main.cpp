@@ -8,22 +8,11 @@ using namespace std;
 
 void solve_by_rootover()
 {
-   int a,x,y;
-   cin>>a>>x>>y;
-   int dx=abs(a-x);
-   int dy=abs(a-y);
-   for(int i=a-1000;i<=a+1000;++i)
-   {
-      int dx_b=abs(i-x);
-      int dy_b=abs(i-y);
-       if(i==a)continue;
-       if(dx_b<dx&&dy_b<dy)
-       {
-        cout<<"YES"<<endl;
-        return;
-       }
-   }
-   cout<<"NO"<<endl;
+    
+
+    int n;
+    cin>>n;
+    cout<<2*n;
 }
 
 int main()
