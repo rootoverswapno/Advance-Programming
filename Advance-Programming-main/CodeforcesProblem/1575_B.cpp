@@ -1,45 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define vr vector<ll>arr
+#define vp push_back
+const int N=1e6+7;
 #ifdef ONLINE_JUDGE
 #define LOCAL_IO()
 #else
 #define LOCAL_IO() freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
 #endif
-
+int dp[N];
+bool check(int n,int sum)
+{    
+     if(sum==n)return true;
+     if(sum>n)return false;
+     if(dp[sum]!=-1)
+     {
+        return dp[sum];
+     }
+     return dp[sum]=check(n,sum+2021)||check(n,sum+2020);
+     
+}
 void solve_by_rootover()
 {
-    
+    memset(dp,-1,sizeof(dp));
     int n;
     cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;++i)
+    int sum=0;
+    if(check(n,sum))
     {
-        cin>>v[i];
+        cout<<"YES"<<endl;
     }
-    int ans=-1;
-     for(int i=1;i<n;++i)
+    else
     {
-        if(abs(v[i]-v[i-1])<=1)
-        {
-            ans=0;
-            cout<<ans<<endl;
-            return;
-        }
-       
+        cout<<"NO"<<endl;
     }
-    for(int i=2;i<n;++i)
-    {
-        if(min(v[i-1],v[i-2])<=v[i]&&v[i]<=max(v[i-1],v[i-2]))ans=1;
-    }
-    for(int i=0;i<n-2;++i)
-    {
-        if(min(v[i+1],v[i+2])<=v[i]&&v[i]<=max(v[i+1],v[i+2]))ans=1;
-    }
-   
-    cout<<ans<<endl;
-
 }
+
 int main()
 {
     ios::sync_with_stdio(false);

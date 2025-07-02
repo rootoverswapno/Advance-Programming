@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define vr vector<ll>arr
+#define vp push_back
 #ifdef ONLINE_JUDGE
 #define LOCAL_IO()
 #else
@@ -9,37 +11,27 @@ using namespace std;
 
 void solve_by_rootover()
 {
-    
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;++i)
+    int n;cin>>n;
+    int pos=1;
+    vector<int>res;
+    while(n>0)
     {
-        cin>>v[i];
-    }
-    int ans=-1;
-     for(int i=1;i<n;++i)
-    {
-        if(abs(v[i]-v[i-1])<=1)
+        int mod=n%10;
+        if(mod!=0)
         {
-            ans=0;
-            cout<<ans<<endl;
-            return;
+           res.vp(mod*pos);
         }
-       
+        n/=10;
+        pos*=10;
     }
-    for(int i=2;i<n;++i)
+    cout<<res.size()<<endl;
+    for(auto &i:res)
     {
-        if(min(v[i-1],v[i-2])<=v[i]&&v[i]<=max(v[i-1],v[i-2]))ans=1;
+        cout<<i<<" ";
     }
-    for(int i=0;i<n-2;++i)
-    {
-        if(min(v[i+1],v[i+2])<=v[i]&&v[i]<=max(v[i+1],v[i+2]))ans=1;
-    }
-   
-    cout<<ans<<endl;
-
+    cout<<endl;
 }
+
 int main()
 {
     ios::sync_with_stdio(false);

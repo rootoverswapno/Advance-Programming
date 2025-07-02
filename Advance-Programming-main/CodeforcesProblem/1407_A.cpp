@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define vr vector<ll>arr
+#define vp push_back
 #ifdef ONLINE_JUDGE
 #define LOCAL_IO()
 #else
@@ -9,37 +11,48 @@ using namespace std;
 
 void solve_by_rootover()
 {
-    
-    int n;
-    cin>>n;
-    vector<int>v(n);
+    int n;cin>>n;
+    vr(n);
     for(int i=0;i<n;++i)
     {
-        cin>>v[i];
+        cin>>arr[i];
     }
-    int ans=-1;
-     for(int i=1;i<n;++i)
-    {
-        if(abs(v[i]-v[i-1])<=1)
-        {
-            ans=0;
-            cout<<ans<<endl;
-            return;
-        }
-       
-    }
-    for(int i=2;i<n;++i)
-    {
-        if(min(v[i-1],v[i-2])<=v[i]&&v[i]<=max(v[i-1],v[i-2]))ans=1;
-    }
-    for(int i=0;i<n-2;++i)
-    {
-        if(min(v[i+1],v[i+2])<=v[i]&&v[i]<=max(v[i+1],v[i+2]))ans=1;
-    }
-   
-    cout<<ans<<endl;
+    int count0=0;
+    int count1=0;
 
+    for(int num:arr)
+    {
+        if(num==0)count0++;
+        else count1++;
+    }
+
+    int mid=n/2;
+
+    vector<ll>res;
+    if(count0>=mid)
+    {
+        for(int i=0;i<mid;++i)
+        {
+            res.vp(0);
+        }
+    }
+    else
+    {
+        int ct=(count1/2)*2;
+        for(int i=0;i<ct;++i)
+        {
+            res.vp(1);
+        }
+    }
+    cout<<res.size()<<endl;
+    for(ll &num:res)
+    {
+        cout<<num<<" ";
+    }
+    cout<<endl;
+    
 }
+
 int main()
 {
     ios::sync_with_stdio(false);

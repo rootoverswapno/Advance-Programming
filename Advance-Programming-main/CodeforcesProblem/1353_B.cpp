@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define vr vector<ll>arr
+#define vr1 vector<ll>arr
+#define vp push_back
 #ifdef ONLINE_JUDGE
 #define LOCAL_IO()
 #else
@@ -9,37 +12,32 @@ using namespace std;
 
 void solve_by_rootover()
 {
-    
-    int n;
-    cin>>n;
-    vector<int>v(n);
+    int n,k;
+    cin>>n>>k;
+    vr(n),arr2(n);
     for(int i=0;i<n;++i)
     {
-        cin>>v[i];
+        cin>>arr[i];
     }
-    int ans=-1;
-     for(int i=1;i<n;++i)
+    for(int i=0;i<n;++i)
     {
-        if(abs(v[i]-v[i-1])<=1)
-        {
-            ans=0;
-            cout<<ans<<endl;
-            return;
-        }
-       
+        cin>>arr2[i];
     }
-    for(int i=2;i<n;++i)
-    {
-        if(min(v[i-1],v[i-2])<=v[i]&&v[i]<=max(v[i-1],v[i-2]))ans=1;
-    }
-    for(int i=0;i<n-2;++i)
-    {
-        if(min(v[i+1],v[i+2])<=v[i]&&v[i]<=max(v[i+1],v[i+2]))ans=1;
-    }
-   
-    cout<<ans<<endl;
+    sort(arr.begin(),arr.end());
+    sort(arr2.begin(),arr2.end());
 
+    for(int i=0,j=n-1;i<n,j>=0;++i,j--)
+    {
+      if(arr[i]<arr2[j]&&k!=0)
+      {
+        swap(arr[i],arr2[j]);
+        k--;
+      }
+    }
+    int sum=accumulate(arr.begin(),arr.end(),0);
+    cout<<sum<<endl;  
 }
+
 int main()
 {
     ios::sync_with_stdio(false);
