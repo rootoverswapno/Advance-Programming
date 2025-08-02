@@ -1,29 +1,37 @@
-#include<bits/stdc++.h>
-using namespace std;
-#ifdef ONLINE_JUDGE
-#define LOCAL_IO()
-#else
-#define LOCAL_IO() freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
-#endif
+#include <iostream>
+#include <mysql_driver.h>
+#include <mysql_connection.h>
+#include <cppconn/statement.h>
+#include <cppconn/resultset.h>
 
-void solve_by_rootover()
-{
-    int n;
-    cin>>n;
-    cout<<2*n<<endl;
-}
+int main() {
+    try {
+        sql::mysql::MySQL_Driver *driver;
+        sql::Connection *con;
+        sql::Statement *stmt;
+        sql::ResultSet *res;
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    LOCAL_IO();
-    int testcase;
-    cin >> testcase;
-    for(int i = 1; i <= testcase; ++i)
-    {
-        solve_by_rootover();
+        // Connect to MySQL
+        driver = sql::mysql::get_mysql_driver_instance();
+        con = driver->connect("tcp://127.0.0.1:3306", "root", ""); // No password by default
+
+        con->setSchema("testdb");  // Use your DB
+
+        stmt = con->createStatement();
+        res = stmt->executeQuery("SELECT * FROM users");
+
+        while (res->next()) {
+            std::cout << "ID: " << res->getInt("id") << ", Name: " << res->getString("name") << std::endl;
+        }
+
+        delete res;
+        delete stmt;
+        delete con;
+
+    } catch (sql::SQLException &e) {
+        std::cerr << "SQL Error: " << e.what() << std::endl;
+        return 1;
     }
+
     return 0;
 }

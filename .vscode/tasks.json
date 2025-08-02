@@ -1,18 +1,24 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "compile and run",
-            "type": "shell",
-            "command": "cmd.exe",
-            "args": [
-                "/c",
-                "g++ -std=c++17 -o \"${fileBasenameNoExtension}\" \"${file}\" && .\\${fileBasenameNoExtension} < input.txt > output.txt"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-  }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build MySQL Connector App",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "mysql_connect.cpp",
+        "-o", "mysql_connect.exe",
+        "-I", "C:/Program Files/MySQL/mysql-connector-c++-9.3.0-winx64/include",
+        "-I", "C:/Program Files/MySQL/mysql-connector-c++-9.3.0-winx64/include/jdbc",
+        "-L", "C:/Program Files/MySQL/mysql-connector-c++-9.3.0-winx64/lib64/mysqlcppconn-static.lib",
+        "-lmysqlcppconn9"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Build task for MySQL Connector/C++ 9.3.0"
+    }
+  ]
+}
